@@ -1,3 +1,5 @@
+
+// //require('dotenv').config()
 // import dotenv from "dotenv";
 // import connectDB from "./db/db.js";
 // import { app } from "./app.js";
@@ -8,17 +10,17 @@
 
 // connectDB()
 //   .then(() => {
-//     console.log(`MongoDB connected successfully`);
+//     app.listen(process.env.PORT || 8000, () => {
+//       console.log(`Server is running at port : ${process.env.PORT}`);
+//     });
 //   })
 //   .catch((err) => {
-//     console.log("MONGO db connection failed!!!");
+//     console.log("MONGO db connection failed !!!");
 //   });
 
-// // Export the app as the handler for Vercel
-// export default app;
+//   export default app;
 
 
-//require('dotenv').config()
 import dotenv from "dotenv";
 import connectDB from "./db/db.js";
 import { app } from "./app.js";
@@ -29,12 +31,12 @@ dotenv.config({
 
 connectDB()
   .then(() => {
-    app.listen(process.env.PORT || 8000, () => {
-      console.log(`Server is running at port : ${process.env.PORT}`);
-    });
+    console.log(`MongoDB connected successfully`);
   })
   .catch((err) => {
-    console.log("MONGO db connection failed !!!");
+    console.log("MONGO db connection failed!!!");
   });
 
-  export default app;
+// Export the app as the handler for Vercel
+export default app;
+
